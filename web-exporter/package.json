@@ -1,0 +1,15 @@
+{
+  "name": "figma-make-exporter-web",
+  "version": "3.0.0",
+  "description": "Web-based Figma Make animation exporter",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "puppeteer": "^24.0.0"
+  },
+  "author": "",
+  "license": "MIT"
+}

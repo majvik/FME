@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animation Recorder</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app">
+    <!-- Header -->
+    <header class="header">
+      <h1>🎬 Animation Recorder</h1>
+      <p class="subtitle">Record web animations to WebM video</p>
+    </header>
+
+    <!-- Main content -->
+    <div class="main">
+      <!-- Sidebar controls -->
+      <aside class="sidebar">
+        <!-- Project URL -->
+        <section class="section">
+          <h2 class="section-title">1. Load Project</h2>
+          <div class="field">
+            <label>Project URL:</label>
+            <input type="text" id="projectUrl" placeholder="https://example.com">
+          </div>
+          <button class="btn btn-primary" id="loadBtn">Load Project</button>
+          <div class="status" id="loadStatus"></div>
+        </section>
+
+        <!-- Recording settings -->
+        <section class="section">
+          <h2 class="section-title">2. Recording</h2>
+          <div class="field">
+            <label>Duration (seconds):</label>
+            <input type="number" id="duration" value="6" min="1" max="300">
+          </div>
+        </section>
+
+        <!-- Output -->
+        <section class="section">
+          <h2 class="section-title">3. Output</h2>
+          <div class="field">
+            <label>Output Folder:</label>
+            <div class="input-with-button">
+              <input type="text" id="outputPath" placeholder="/path/to/output">
+              <button class="btn btn-small" id="browseBtn">Browse...</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- Record button -->
+        <section class="section">
+          <button class="btn btn-export" id="exportBtn" disabled>
+            <span class="btn-icon">🎬</span>
+            <span id="exportBtnText">Record</span>
+          </button>
+          
+          <div class="progress-container">
+            <div class="progress-bar">
+              <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <div class="progress-text" id="progressText">Ready</div>
+          </div>
+        </section>
+      </aside>
+
+      <!-- Preview area -->
+      <main class="preview-area">
+        <div class="preview-header">
+          <span class="preview-label">Preview (1920×1080)</span>
+          <span class="preview-info" id="previewInfo">Scale: --</span>
+          <button class="btn btn-small" id="reloadBtn" disabled>⟲ Reload</button>
+        </div>
+        
+        <div class="preview-container" id="previewContainer">
+          <div class="preview-wrapper" id="previewWrapper">
+            <iframe id="previewFrame" class="preview-frame"></iframe>
+          </div>
+          
+          <div class="preview-placeholder" id="previewPlaceholder">
+            <div class="placeholder-icon">📺</div>
+            <div class="placeholder-text">Enter project URL and click "Load Project"</div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

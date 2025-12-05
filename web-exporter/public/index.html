@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Figma Make Exporter</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎬 Figma Make Exporter</h1>
+            <p>Export Figma Make animations to PNG sequences</p>
+        </header>
+
+        <div class="main-content">
+            <aside class="sidebar">
+                <div class="section">
+                    <h2>1. Select Project</h2>
+                    <div class="form-group">
+                        <label>Project Folder Path:</label>
+                        <div class="input-with-button">
+                            <input type="text" id="projectPath" placeholder="/path/to/project">
+                            <button type="button" id="browseProjectBtn" class="btn btn-secondary btn-small">Browse...</button>
+                        </div>
+                    </div>
+                    <button id="loadProjectBtn" class="btn btn-primary">Load Project</button>
+                    <div id="projectStatus" class="status-message"></div>
+                </div>
+
+                <div class="section">
+                    <h2>2. Animation Control</h2>
+                    <div class="animation-controls">
+                        <div class="playback-controls">
+                            <button id="playPauseBtn" class="btn btn-control" disabled>
+                                <span id="playIcon">▶</span>
+                            </button>
+                            <button id="restartBtn" class="btn btn-control" disabled>⟲</button>
+                        </div>
+                        <div class="timeline-container">
+                            <input type="range" id="timeline" min="0" max="100" value="0" disabled>
+                            <div class="time-display">
+                                <span id="currentTime">0.00</span>s / <span id="totalTime">0.00</span>s
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>3. Export Settings</h2>
+                    <div class="form-group">
+                        <label>Animation Duration (seconds):</label>
+                        <input type="number" id="duration" value="6" min="0.1" step="0.1">
+                        <small class="hint">Set this to match your animation loop duration</small>
+                    </div>
+                    <div class="form-group">
+                        <label>Frame Rate (FPS):</label>
+                        <input type="number" id="fps" value="60" min="1" max="60">
+                    </div>
+                    <div class="form-group">
+                        <label>Output Folder Path:</label>
+                        <div class="input-with-button">
+                            <input type="text" id="outputPath" placeholder="/path/to/output">
+                            <button type="button" id="browseOutputBtn" class="btn btn-secondary btn-small">Browse...</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <button id="exportBtn" class="btn btn-success" disabled>Export PNG Sequence</button>
+                    <div id="progress" class="progress-container" style="display: none;">
+                        <div id="progressBar" class="progress-bar"></div>
+                        <div id="progressText" class="progress-text">0%</div>
+                    </div>
+                    <div id="exportStatus" class="export-status"></div>
+                </div>
+            </aside>
+
+            <main class="preview-area">
+                <!-- Preview wrapper with 16:9 aspect ratio -->
+                <div class="preview-wrapper">
+                    <div id="previewContainer" class="preview-container">
+                    <div class="empty-state">
+                        <p>Select a project to preview</p>
+                        </div>
+                    </div>
+                    <div class="preview-resolution">1920 × 1080</div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

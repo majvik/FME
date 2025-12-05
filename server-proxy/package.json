@@ -1,0 +1,14 @@
+{
+  "name": "png-sequence-recorder",
+  "version": "1.0.0",
+  "description": "Record any web animation to PNG sequence",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "http-proxy-middleware": "^3.0.0"
+  }
+}
+
